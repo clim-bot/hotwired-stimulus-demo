@@ -1,0 +1,63 @@
+<div data-controller="cards-modal" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-8">
+  <% Card.all.each do |card| %>
+    <div
+      class="bg-white rounded shadow p-4 border border-gray-100 hover:shadow-lg transition-shadow cursor-pointer"
+      data-action="click->cards-modal#open"
+      data-cards-modal-title="<%= card.title %>"
+      data-cards-modal-body="<%= card.body %>"
+      data-cards-modal-code="<%= SecureRandom.hex(4).upcase %>"
+    >
+      <h3 class="font-bold text-lg mb-2"><%= card.title %></h3>
+      <p class="text-gray-700"><%= card.body %></p>
+    </div>
+  <% end %>
+
+  <!-- Modal for card details -->
+  <div
+    data-cards-modal-target="modal"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-gray-200 bg-opacity-50 hidden"
+    aria-modal="true"
+    role="dialog"
+    tabindex="-1"
+  >
+    <div class="bg-white p-8 rounded shadow-lg relative min-w-[320px] w-full max-w-md">
+      <button
+        data-action="click->cards-modal#close"
+        class="absolute top-3 right-3 text-2xl text-gray-400 hover:text-gray-700 focus:outline-none transition"
+        aria-label="Close"
+      >&times;</button>
+      <h2 class="text-xl font-bold mb-4" data-cards-modal-target="modalTitle"></h2>
+      <p class="mb-4" data-cards-modal-target="modalBody"></p>
+
+      <!-- Code + Copy (with seamless spacing and speech bubble) -->
+      <div class="mb-2">
+        <label class="block text-gray-700 font-semibold mb-1">Your Code:</label>
+        <div class="relative flex items-center">
+          <input
+            data-cards-modal-target="modalCode"
+            type="text"
+            value=""
+            readonly
+            class="border border-r-0 px-3 py-2 rounded-l w-40 bg-gray-50 text-gray-900 font-mono focus:outline-none"
+          >
+          <button
+            data-action="click->cards-modal#copy"
+            class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 border border-l-0 border-amber-500 rounded-r font-semibold shadow transition cursor-pointer focus:outline-none"
+            type="button"
+            style="margin-left: 0;"
+          >
+            Copy Code
+          </button>
+          <!-- Speech bubble -->
+          <div
+            data-cards-modal-target="bubble"
+            class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-4 py-2 rounded-full shadow opacity-0 pointer-events-none transition-all duration-300 text-xs whitespace-nowrap"
+            style="z-index:100;"
+          >
+            Copied to your clipboard!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

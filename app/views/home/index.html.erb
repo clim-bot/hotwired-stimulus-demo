@@ -1,0 +1,19 @@
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold mb-8">Hotwired Stimulus Demo</h1>
+  
+  <!-- Controls Row: dropdowns, modal button, toast button, etc. -->
+  <div class="flex flex-wrap items-center gap-x-4 gap-y-4 mb-8">
+    <%= render "shared/sidebar" %>
+    <%= render "shared/dropdown_with_input" %>
+    <%= render "shared/navigation_dropdown" %>
+    <%= render "shared/modal_with_button" %>
+    <%= render "shared/toast_with_button" %>
+  </div>
+
+  <!-- Rest of the main content -->
+  <%= render "shared/clipboard" %>
+  <%= render "shared/radio" %>
+  <%= render "shared/checkbox" %>
+  <%= render "shared/cards" %>
+  <%= render "shared/carousel" %>
+</div>

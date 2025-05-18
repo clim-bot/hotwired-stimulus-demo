@@ -1,0 +1,29 @@
+<div data-controller="modal">
+  <!-- Open Modal Button -->
+  <button
+    data-action="click->modal#open"
+    class="px-4 py-2 rounded bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 hover:shadow-lg cursor-pointer transition"
+    type="button"
+  >
+    Open Modal
+  </button>
+
+  <!-- Modal Overlay (Light Gray, 50% Opacity) -->
+  <div
+    data-modal-target="container"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-gray-200 bg-opacity-50 hidden"
+    aria-modal="true"
+    role="dialog"
+    tabindex="-1"
+  >
+    <div class="bg-white p-8 rounded shadow-lg relative min-w-[320px] w-full max-w-md">
+      <button
+        data-action="click->modal#close"
+        class="absolute top-3 right-3 text-2xl text-gray-400 hover:text-gray-700 focus:outline-none transition"
+        aria-label="Close"
+      >&times;</button>
+      <h2 class="text-xl font-bold mb-4">This is a Modal</h2>
+      <p>Hello, Hotwire & Stimulus!</p>
+    </div>
+  </div>
+</div>

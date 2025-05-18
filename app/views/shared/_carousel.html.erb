@@ -1,0 +1,29 @@
+<div
+  data-controller="carousel"
+  data-carousel-cards="<%= Card.all.to_json(only: [:title, :body]) %>"
+  class="relative w-full max-w-2xl mx-auto my-8"
+>
+  <!-- Previous Button -->
+  <button
+    data-action="click->carousel#prev"
+    class="btn-small absolute left-0 top-1/2 transform -translate-y-1/2 z-10"
+    aria-label="Previous"
+    type="button"
+  ><</button>
+
+  <!-- Card display -->
+  <div
+    data-carousel-target="item"
+    class="flex flex-col justify-center items-center h-48 bg-gray-100 rounded text-center px-4"
+  >
+    <!-- Stimulus will render card title and body here -->
+  </div>
+
+  <!-- Next Button -->
+  <button
+    data-action="click->carousel#next"
+    class="btn-small absolute right-0 top-1/2 transform -translate-y-1/2 z-10"
+    aria-label="Next"
+    type="button"
+  >></button>
+</div>

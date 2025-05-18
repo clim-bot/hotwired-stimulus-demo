@@ -1,0 +1,27 @@
+<div data-controller="toast" class="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-2">
+  <!-- Show Toast Button -->
+  <button
+    data-action="click->toast#show"
+    class="px-4 py-2 rounded bg-green-700 text-white font-bold shadow hover:bg-green-800 hover:shadow-xl cursor-pointer transition"
+    type="button"
+  >
+    Show Toast
+  </button>
+  <!-- Toast Notification -->
+  <div
+    data-toast-target="toast"
+    class="hidden bg-green-600 text-white px-6 py-3 rounded shadow-lg font-semibold transition-opacity duration-300 relative min-w-[220px] max-w-xs break-words"
+    role="status"
+    aria-live="polite"
+  >
+    <button
+      data-action="click->toast#hide"
+      class="absolute top-2 right-2 text-white text-xl hover:text-gray-200 focus:outline-none"
+      aria-label="Close"
+      type="button"
+    >&times;</button>
+    <span>
+      This is a toast notification! If this message is very long, it will gracefully wrap to the next line and look clean on any screen size.
+    </span>
+  </div>
+</div>

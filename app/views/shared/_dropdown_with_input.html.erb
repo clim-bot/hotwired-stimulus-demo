@@ -1,0 +1,22 @@
+<div data-controller="dropdown" class="relative">
+  <div class="flex">
+    <input type="text"
+      placeholder="Type or select…"
+      class="border px-3 py-2 rounded-l w-40 focus:outline-none focus:ring-2 focus:ring-blue-200"
+      data-dropdown-target="input"
+      autocomplete="off"
+    >
+    <button
+      data-action="click->dropdown#toggle"
+      class="btn-small rounded-l-none rounded-r px-3 py-2 border border-l-0 border-gray-300 bg-gray-100 hover:bg-gray-200 cursor-pointer"
+      type="button"
+    >
+      ▼
+    </button>
+  </div>
+  <div data-dropdown-target="menu" class="absolute left-0 mt-1 bg-white border rounded shadow-lg w-40 hidden z-20">
+    <a href="#" data-action="click->dropdown#select" class="block px-4 py-2 hover:bg-gray-100">Option 1</a>
+    <a href="#" data-action="click->dropdown#select" class="block px-4 py-2 hover:bg-gray-100">Option 2</a>
+    <a href="#" data-action="click->dropdown#select" class="block px-4 py-2 hover:bg-gray-100">Option 3</a>
+  </div>
+</div>
